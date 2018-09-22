@@ -9,11 +9,11 @@ class Header extends Component {
         // Check if user is logged in
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
-              this.setState({ loggedIn: true });
+                this.setState({ loggedIn: true });
             } else {
-              this.setState({ loggedIn: false });
+                this.setState({ loggedIn: false });
             }
-          });
+        });
     }
 
     renderHeaderContent() {
@@ -49,24 +49,24 @@ class Header extends Component {
         }
     }
 
-    
+
     render() {
         return (
             <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-                
+
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
-                </button>                
+                </button>
 
-                <Link to={'/'} className="navbar-brand">101 Donations</Link>
-              
+                <Link to={'/'} className="navbar-brand">Donator</Link>
+
                 {this.renderHeaderContent()}
 
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                 {this.renderMenuButtons()}
             </div>
 
-                
+
             </nav>
 
         );

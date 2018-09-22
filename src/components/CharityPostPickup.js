@@ -7,7 +7,7 @@ import * as firebase from 'firebase';
 import GoogleMap from "./google_map";
 
 
-class CharityPostFeed extends Component {
+class CharityPostPickup extends Component {
     constructor() {
         super();
 
@@ -53,7 +53,7 @@ class CharityPostFeed extends Component {
        
 
         firebase.database().ref(`charities/123/postQueue/${event.target.value}`).update({
-            status: 'reserved'
+            status: 'picked-up'
         });
         
     }
@@ -81,7 +81,7 @@ class CharityPostFeed extends Component {
     renderPosts() {
         var i = 0;
         return _.map(this.state.postQueueList, post => {
-            if (post.status == 'available') {
+            if (post.status == 'reserved') {
                 console.log(post.id);
                 i += 1;
                 return (
@@ -95,8 +95,8 @@ class CharityPostFeed extends Component {
                                 <div style={{ width: '100%', height: '200px', alignItems: 'center', marginBottom: '20px'}}>
                                     <GoogleMap lon={-79.384293} lat={43.653908} />
                                 </div>
-                                <button type="button" className="btn btn-outline-success btn-lg btn-block" value={post.id} onClick={this.handleAccept}>Accept</button>
-                                <button type="button" className="btn btn-outline-danger btn-lg btn-block" value={post.id} onClick={this.handleReject}>Reject</button>
+                                <button type="button" className="btn btn-outline-success btn-lg btn-block" value={post.id} onClick={this.handleAccept}>Confirm Pickup</button>
+                                <button type="button" className="btn btn-outline-danger btn-lg btn-block" value={post.id} onClick={this.handleReject}>Remove</button>
                             </div>
                         </div>
                     </div>
@@ -111,10 +111,10 @@ class CharityPostFeed extends Component {
             <div className="container">
                 <div className="row" style={{ marginTop: '70px' }}>
                     <div class="btn-group" role="group" aria-label="Basic example" style={{margin: 'auto'}}>
-                        <button type="button" class="btn btn-secondary active" >Posts</button>
-                        <Link to={'/charitypostpickup'}>
-                            <button type="button" class="btn btn-secondary">Items Pickup</button>
+                        <Link to={'/charitypostfeed'}>
+                            <button type="button" class="btn btn-secondary" >Posts</button>
                         </Link>
+                            <button type="button" class="btn btn-secondary active">Items Pickup</button>
                         <Link to={'/charitystats'}>
                             <button type="button" class="btn btn-secondary">Statistics</button>
                         </Link>
@@ -126,4 +126,4 @@ class CharityPostFeed extends Component {
     }
 }
 
-export default CharityPostFeed;
+export default CharityPostPickup;
