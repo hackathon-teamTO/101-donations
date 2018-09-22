@@ -44,6 +44,7 @@ class NewPost extends Component {
 
         <div className="form-group row">
           <div className="form-group col-md-8">
+          <h6>Select a charity</h6>
             <div  multiple className="form-control"style={styles.iconsBox}>
 
               <div class="form-group" style={styles.iconsLayout}>
