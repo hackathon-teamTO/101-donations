@@ -9,6 +9,7 @@ import Login from './components/Login';
 import Donator from './components/Donator';
 import NewPost from './components/NewPost';
 import Landing from './components/Landing';
+import UserDashboard from "./components/UserDashboard";
 import CharityStats from './components/CharityStats';
 import CharityPostPickup from './components/CharityPostPickup';
 
@@ -23,6 +24,7 @@ const config = {
 firebase.initializeApp(config);
 
 class App extends Component {
+ 
   render() {
     return (
       <div>
@@ -35,6 +37,7 @@ class App extends Component {
             <Route exact path="/charitystats" component={CharityStats} />
             <Route exact path="/post/new" component={NewPost} />
             <Route path="/login" component={Login} />
+            <Route path="/userdash" component={UserDashboard}/>
           </div>
 				</BrowserRouter>
       </div>
