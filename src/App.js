@@ -9,6 +9,8 @@ import Login from './components/Login';
 import Donator from './components/Donator';
 import NewPost from './components/NewPost';
 import Landing from './components/Landing';
+import CharityStats from './components/CharityStats';
+import CharityPostPickup from './components/CharityPostPickup';
 
 const config = {
   apiKey: "AIzaSyB4pcLbkq9H1psYfWY0kF9W9F1raOSErH0",
@@ -29,6 +31,8 @@ class App extends Component {
             <Header />
             <Route exact path="/" component={Landing} />
             <Route exact path="/charitypostfeed" component={CharityPostFeed} />
+            <Route exact path="/charitypostpickup" component={CharityPostPickup} />
+            <Route exact path="/charitystats" component={CharityStats} />
             <Route exact path="/post/new" component={NewPost} />
             <Route path="/login" component={Login} />
           </div>
