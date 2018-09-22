@@ -26,7 +26,7 @@ handleSubmit = (event) => {
   this.setState({
     isLoggedIn: true
   })
-  
+
   firebase
   .auth()
   .signInWithEmailAndPassword(this.state.email, this.state.password)
@@ -38,7 +38,7 @@ handleSubmit = (event) => {
         .catch((error) => {
           console.log("Error: " + error);
         });
-    });  
+    });
 }
 
   render() {
