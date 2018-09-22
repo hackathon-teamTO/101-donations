@@ -21,6 +21,7 @@ const styles = {
 class NewPost extends Component {
 
   state = {
+    status: 'available',
     category:'',
     dQuantity:'',
     charity: 'Furniture Bank',
@@ -42,6 +43,8 @@ class NewPost extends Component {
     event.preventDefault();
     console.log('submitting')
     const data = {
+      id: '',
+      status: this.state.status,
       category: this.state.category,
       dQuantity: this.state.dQuantity,
       charity: 'Furniture Bank',
@@ -51,10 +54,16 @@ class NewPost extends Component {
       inputAddress: this.state.inputAddress,
       inputZip: this.state.inputZip
     }
-    const dbRef = firebase.database().ref('charities');
-    dbRef.child(
-      "123").child("postQueue").push(data)
 
+
+    firebase.database().ref('charities').child("123").child("postQueue").push(data).then((response) => {
+      const key = response.key;
+      firebase.database().ref(`charities/123/postQueue/${key}`).update({
+        id: key
+      });
+    });
+
+    // const dbRef = firebase.database().ref('charities');
 
 
   }
