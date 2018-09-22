@@ -5,6 +5,11 @@ const styles = {
   iconsBox: {
     height: '150px',
     overflow: "scroll"
+  },
+  iconsLayout: {
+    padding: '10px',
+    display: 'flex',
+    'flex-direction': 'row'
   }
 
 }
@@ -21,6 +26,7 @@ class NewPost extends Component {
               <option>Apparel</option>
               <option>Electronics</option>
               <option>Non Perishable</option>
+              <option>Money</option>
             </select>
           </div>
         </div>
@@ -36,28 +42,28 @@ class NewPost extends Component {
           <div class="form-group col-md-8">
             <div className="" style={styles.iconsBox}>
 
-              <div style={{padding: '10px', display: 'flex', 'flex-direction': 'column' }}>
+              <div style={styles.iconsLayout}>
                 <a href="https://placeholder.com">
                 <img id='fb' src="https://via.placeholder.com/100x100"></img></a>
                 <label htmlFor='fb'>Furniture Bank</label>
               </div>
 
-              <div style={{padding: '10px', display: 'flex', 'flex-direction': 'column' }}>
+              <div style={styles.iconsLayout}>
                 <a href="https://placeholder.com">
                 <img id='fb' src="https://via.placeholder.com/100x100"></img></a>
-                <label htmlFor='fb'>The Children's Book bank</label>
+                <label htmlFor='fb'>Book bank</label>
               </div>
 
-              <div style={{padding: '10px', display: 'flex', 'flex-direction': 'column' }}>
+              <div style={styles.iconsLayout}>
                 <a href="https://placeholder.com">
                 <img id='fb' src="https://via.placeholder.com/100x100"></img></a>
-                <label htmlFor='fb'>The Local Charity</label>
+                <label htmlFor='fb'>Local Charity</label>
               </div>
 
-              <div style={{padding: '10px', display: 'flex', 'flex-direction': 'column' }}>
+              <div style={styles.iconsLayout}>
                 <a href="https://placeholder.com">
                 <img id='fb' src="https://via.placeholder.com/100x100"></img></a>
-                <label htmlFor='fb'>Toronto Youth Development</label>
+                <label htmlFor='fb'>Toronto Youth</label>
               </div>
 
             </div>
