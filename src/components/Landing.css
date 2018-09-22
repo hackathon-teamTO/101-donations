@@ -1,0 +1,10 @@
+
+
+.landing {
+    -webkit-columns: 2 200px;
+    -moz-columns: 2 200px;
+         columns: 2 200px;
+ -webkit-column-gap: 4em;
+    -moz-column-gap: 4em;
+         column-gap: 4em;
+}
