@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 class CharityPostFeed extends Component {
+    //this is a comment
 
     renderList() {
         return (
