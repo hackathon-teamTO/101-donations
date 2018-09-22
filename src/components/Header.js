@@ -58,7 +58,7 @@ class Header extends Component {
                     <span className="navbar-toggler-icon"></span>
                 </button>                
 
-                <Link to={'/'} className="navbar-brand">Donator</Link>
+                <Link to={'/'} className="navbar-brand">101 Donations</Link>
               
                 {this.renderHeaderContent()}
 
