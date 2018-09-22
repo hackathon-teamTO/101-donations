@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import BarChart from "./BarChart";
 import badge from "../images/badge_1.png"
 import "./toggle.css"
 class UserDashboard extends Component {
