@@ -9,6 +9,7 @@ import Login from './components/Login';
 import Donator from './components/Donator';
 import NewPost from './components/NewPost';
 import Landing from './components/Landing';
+import UserDashboard from "./components/UserDashboard";
 
 const config = {
   apiKey: "AIzaSyB4pcLbkq9H1psYfWY0kF9W9F1raOSErH0",
@@ -31,6 +32,7 @@ class App extends Component {
             <Route exact path="/charitypostfeed" component={CharityPostFeed} />
             <Route exact path="/post/new" component={NewPost} />
             <Route path="/login" component={Login} />
+            <Route path="/userdash" component={UserDashboard}/>
           </div>
 				</BrowserRouter>
       </div>
