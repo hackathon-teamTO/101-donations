@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "bootstrap-input-spinner";
+import axios from 'axios';
 import * as firebase from 'firebase';
 import { Redirect } from 'react-router';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
@@ -58,7 +58,19 @@ class NewPost extends Component {
       inputAddress: this.state.inputAddress,
       inputZip: this.state.inputZip
     }
+    //convert address to lat long
+    /*
+    const newAddress = data.inputAddress.split(' ').join('+');
+    console.log("New Address: " + newAddress);
+    axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${newAddress}&key=AIzaSyDYLVNz5_bDz5s6xsa78p7Unbxj7u6qqrU`, (response) => {
+      console.log("CONVERT!!: " + response);
+    }).catch((err) => {
+      console.log("ERORR?? " + err);
+    });
+    */
 
+      //post
+    
     
     firebase.database().ref('charities').child("123").child("postQueue").push(data).then((response) => {
       const key = response.key;
@@ -66,6 +78,7 @@ class NewPost extends Component {
         id: key
       });
     });
+    
     
     this.createNotification();
 
@@ -163,7 +176,7 @@ class NewPost extends Component {
               <div className="form-group col">
                 <input type="text" className="form-control" placeholder="Last name" onChange={this.handleChange} id='lastn'></input>
               </div>
-              <div class="form-group col">
+              <div className="form-group col">
                 <input type="text" className="form-control" id="inputAddress" placeholder="Address" onChange={this.handleChange} ></input>
               </div>
               <div className="form-group col">
