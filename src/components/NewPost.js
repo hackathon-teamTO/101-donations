@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
 import "bootstrap-input-spinner";
 import * as firebase from 'firebase';
+import { Redirect } from 'react-router';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 const styles = {
   iconsBox: {
-    height: '150px',
+    height: '200px',
     display: 'flex',
-    'flex-wrap': "wrap",
-    'overflow': "scroll",
-    'justify-content': 'center'
+    flexWrap: "wrap",
+    overflow: "scroll",
+    justifyContent: 'center'
   },
   iconsLayout: {
     padding: '10px',
     display: 'flex',
-    'flex-direction': 'column',
+    flexDirection: 'column',
   }
 
 }
@@ -29,7 +32,8 @@ class NewPost extends Component {
     firstn:'',
     lastn:'',
     inputAddress: '',
-    inputZip: ''
+    inputZip: '',
+    isPostSucceed: false
   }
 
   handleChange = (event) => {
@@ -55,23 +59,40 @@ class NewPost extends Component {
       inputZip: this.state.inputZip
     }
 
-
+    
     firebase.database().ref('charities').child("123").child("postQueue").push(data).then((response) => {
       const key = response.key;
       firebase.database().ref(`charities/123/postQueue/${key}`).update({
         id: key
       });
     });
+    
+    this.createNotification();
 
-    // const dbRef = firebase.database().ref('charities');
+    
+    /*
+    this.setState({
+      isPostSucceed: true
+    });
+    */
+
 
 
   }
 
+  createNotification() {
+    console.log("NOTIFF");
+    return NotificationManager.success('Item was successfully posted', 'Success!');
+  }
+
 
   render() {
+    if (this.state.isPostSucceed) {
+      return <Redirect to='/userdash'/>;
+    }
+
     return (
-      <div style={{ marginTop: '80px',  marginLeft: '50px', marginRight: '50px' }}>
+      <div style={{ marginTop: '80px',  marginLeft: '50px', marginRight: '50px', marginBottom: '50px' }}>
         <form className='col-md-10'>
         <div className="form-group row">
           <div className="form-group col-md-8">
@@ -81,7 +102,7 @@ class NewPost extends Component {
               <option>Electronics</option>
               <option>Furniture</option>
               <option>Non Perishable</option>
-              <option>Money</option>
+              <option>Misc</option>
             </select>
           </div>
         </div>
@@ -115,7 +136,7 @@ class NewPost extends Component {
             </div>
             <div className="form-check form-check-inline">
               <input className="form-check-input" type="checkbox" id="inlineCheckbox2" value="all"></input>
-              <label className="form-check-label" htmlFor="inlineCheckbox2">Select All</label>
+              <label className="form-check-label" htmlFor="inlineCheckbox2">No Preference</label>
             </div>
 
           </div>
@@ -134,7 +155,7 @@ class NewPost extends Component {
         <div className="form-group row">
         <hr/>
           <div className="form-group col-md-8">
-          <h6>Dornator inforamtion:</h6>
+          <h6>Donator inforamtion:</h6>
 
               <div className="form-group col">
                 <input type="text" className="form-control" placeholder="First name"  onChange={this.handleChange} id='firstn'></input>
@@ -151,10 +172,11 @@ class NewPost extends Component {
 
           </div>
         </div>
+        <NotificationContainer />
 
-        <button type="submit" className="btn btn-primary" onClick={this.getData}>Submit</button>
-        </form>
-      </div>
+        <button type="submit" className="btn btn-outline-primary btn-lg btn-block" onClick={this.getData}>Submit</button>
+        </form>        
+      </div>      
     );
   }
 }

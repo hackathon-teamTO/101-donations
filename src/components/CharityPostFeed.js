@@ -86,12 +86,12 @@ class CharityPostFeed extends Component {
                 i += 1;
                 return (
                     <div className="col-sm-6">
-                        <div className="card" style={{ marginTop: '20px' }}>
-                            <img style={{ height: '100px' }} className="card-img-top" src="https://via.placeholder.com/500x100" alt="Card image cap" />
+                        <div className="card" style={{ marginTop: '30px', boxShadow: '7px 7px 16px 0 rgba(0, 0, 0, .3)' }}>
+                            <img style={{ height: '200px' }} className="card-img-top" src="https://via.placeholder.com/450x200" alt="Card image cap" />
                             <div className="card-body">
                                 <h5 className="card-title">{'By: ' + post.firstn + ' ' + post.lastn}</h5>
                                 <h5 className="card-title">{'Item Category: ' + post.category}</h5>
-                                <h5 className="card-title">Location</h5>
+                                <h5 className="card-title">{'Address: ' + post.inputAddress}</h5>
                                 <div style={{ width: '100%', height: '200px', alignItems: 'center', marginBottom: '20px'}}>
                                     <GoogleMap lon={-79.384293} lat={43.653908} />
                                 </div>
@@ -111,12 +111,12 @@ class CharityPostFeed extends Component {
             <div className="container">
                 <div className="row" style={{ marginTop: '70px' }}>
                     <div class="btn-group" role="group" aria-label="Basic example" style={{margin: 'auto'}}>
-                        <button type="button" class="btn btn-secondary active" >Posts</button>
+                        <button type="button" class="btn btn-secondary active" style={{borderRadius: '0', width: '130px'}}>Posts</button>
                         <Link to={'/charitypostpickup'}>
-                            <button type="button" class="btn btn-secondary">Items Pickup</button>
+                            <button type="button" class="btn btn-secondary" style={{borderRadius: '0', width: '130px'}}>Items Pickup</button>
                         </Link>
                         <Link to={'/charitystats'}>
-                            <button type="button" class="btn btn-secondary">Statistics</button>
+                            <button type="button" class="btn btn-secondary" style={{borderRadius: '0', width: '130px'}}>Statistics</button>
                         </Link>
                     </div>
                     {this.renderPosts()}
