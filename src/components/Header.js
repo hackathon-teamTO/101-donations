@@ -35,15 +35,22 @@ class Header extends Component {
         if (this.state.loggedIn) {
             return (
             <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li className="nav-item">
-                    <a className="nav-link" onClick={() => firebase.auth().signOut()}>Logout</a>
+                <li className="nav-item">                    
+                    <Link to={'/userdash'}>
+                        <a className="nav-link">Profile</a>
+                    </Link>
+                    <Link to={'/'}>
+                        <a className="nav-link" onClick={() => firebase.auth().signOut()}>Logout</a>
+                    </Link>
                 </li>
             </ul>);
         } else {
             return (
             <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li className="nav-item">
-                    <a className="nav-link" href="#">Home</a>
+                <Link to={'/'}>
+                    <a className="nav-link">Home</a>
+                </Link>
                 </li>
             </ul>);
         }
@@ -58,7 +65,7 @@ class Header extends Component {
                     <span className="navbar-toggler-icon"></span>
                 </button>
 
-                <Link to={'/'} className="navbar-brand">Donator</Link>
+                <Link to={'/'} className="navbar-brand">101 Donations</Link>
 
                 {this.renderHeaderContent()}
 

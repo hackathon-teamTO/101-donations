@@ -14,14 +14,14 @@ class Landing extends Component {
     render(){
         return (
  
-            <div className="landing" style={{ marginTop: '120px', display:"flex" , justifyContent:"center", flexFlow:"row-wrap", background:"whitesmoke"}}>
+            <div className="landing" style={{ marginTop: '70px', display:"flex" , justifyContent:"center", flexFlow:"row-wrap", background:"whitesmoke"}}>
                
               
                 <div className="Container-fluid">
                 
-                <div className="col-md-2 col-8" style={{padding:'4px', height:"20%", margin:"2px auto", width:"80%"}}>
-                <img src="https://developers.google.com/donation/images/logo_donation_api.png" className= {styles.className} style={{height: "100%",width:"100%", margin:"0 auto"}} alt="Responsive image"/>
-                    </div>
+                <div className="col-md-2 col-8" style={{padding:'4px', height:"300px", width: "300px", margin:"2px auto"}}>
+                    <img src="https://developers.google.com/donation/images/logo_donation_api.png" className= {styles.className} style={{height: "100%",width:"100%", margin:"0 auto"}} alt="Responsive image"/>
+                </div>
                   
               
                 <br/>
@@ -31,9 +31,13 @@ class Landing extends Component {
                 <div className="row" style={{margin:"0px auto"}}>
                     <div className="col-md-12 col-xs-8">
 
-                    <form className="text-center" style={{margin:"0px auto "}}>
-                    <button type="button" class="btn btn-outline-success btn-block btn-lg text-center" style={{width:"80%", margin:"auto"}}>Donate</button>
-                    <button type="button" class="btn btn-outline-primary btn-block btn-lg text-center"  style={{width:"80%", margin:"auto"}}>Register Organization</button>
+                <form className="text-center" style={{margin:"0px auto "}}>
+                    <div style={{marginBottom: '15px'}}>
+                        <button type="button" className="btn btn-outline-success btn-block btn-lg text-center" style={{width:"80%", margin:"auto"}}>Donate</button>
+                    </div>
+                    <div>
+                        <button type="button" className="btn btn-outline-primary btn-block btn-lg text-center"  style={{width:"80%", margin:"auto"}}>Register Organization</button>
+                    </div>
                 </form>
                 <br />
                 </div>

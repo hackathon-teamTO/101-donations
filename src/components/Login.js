@@ -43,7 +43,7 @@ handleSubmit = (event) => {
 
   render() {
     if (this.state.isLoggedIn) {
-      return <Redirect to='/'/>;
+      return <Redirect to='/userdash'/>;
     }
 
     return(
@@ -60,7 +60,7 @@ handleSubmit = (event) => {
         </div>
         <div className="form-group form-check">
           <input type="checkbox" className="form-check-input" id="exampleCheck1"/ >
-          <label className="form-check-label">Check me out</label>
+          <label className="form-check-label">Remember Me</label>
         </div>
         <button type="button" className="btn btn-outline-success" onClick={this.handleSubmit}>Submit</button>
       </form>

@@ -37,7 +37,7 @@ class UserDashboard extends Component {
             <div style={{ marginTop: "70px", marginBottom: "30px" }}>
                 {/* <BarChart data={this.state.data} width={this.state.width} height={this.state.height} />  */}
                 <div className="jumbotron jumbotron-fluid" style={{height: "10%", backgroundColor: "white"}}>
-                    <div classNmae="container">
+                    <div className="container">
                         <h3 className="display-5" style={{textAlign: "center"}}>Dashboard</h3>
                         <p className="lead" style={{paddingLeft:"15px"}}>Achievements:</p> 
                         <div className="achievements" style={{display: "flex", justifyContent: "center", marginBottom: "10px"}}>
@@ -62,38 +62,38 @@ class UserDashboard extends Component {
                             <div className="panel-heading" style={{display: "flex", justifyContent: "center"}}>
                                 <h4 className="panel-title" style={{width: "50%"}}>
                                     <a className="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" style={{textDecoration: "none", color: "black"}}>
-                                        Your Donations <i class="fas fa-angle-double-down"></i>
+                                        Your Donations <i className="fas fa-angle-double-down"></i>
                                     </a>
                                 </h4>
                             </div>
                             <div id="collapseOne" className="panel-collapse collapse in">
-                                <div class="panel-body">
-                                    <div class="card" style={{width: "18rem", margin: "auto",marginBottom: "30px"}}>
-                                        <div class="card-header">
+                                <div className="panel-body">
+                                    <div className="card" style={{width: "18rem", margin: "auto",marginBottom: "30px"}}>
+                                        <div className="card-header">
                                             Pending Posts
                                         </div>
-                                        <ul class="list-group list-group-flush">
+                                        <ul className="list-group list-group-flush">
                                             {this.state.randomArr.map(item => 
-                                                item.accepted === false  && item.rejected === false ? <li class="list-group-item">{item.name}</li> : <div></div>
+                                                item.accepted === false  && item.rejected === false ? <li className="list-group-item">{item.name}</li> : <div></div>
                                             )}
                                         </ul>
                                     </div>
                                     {/* just spacing shing for readability */}
-                                    <div class="card" style={{width: "18rem", margin: "auto"}}>
-                                        <div class="card-header">
+                                    <div className="card" style={{width: "18rem", margin: "auto"}}>
+                                        <div className="card-header">
                                             Accepted Donations
                                         </div>
-                                        <ul class="list-group list-group-flush">
+                                        <ul className="list-group list-group-flush">
                                             {this.state.randomArr.map(item =>
-                                                item.accepted === true  && item.rejected === false ? <li class="list-group-item">{item.name}</li> : <div></div>           
+                                                item.accepted === true  && item.rejected === false ? <li className="list-group-item">{item.name}</li> : <div></div>           
                                             )}
                                         </ul>
-                                        <div class="card-header">
+                                        <div className="card-header">
                                             Rejected Donations
                                         </div>
-                                        <ul class="list-group list-group-flush">
+                                        <ul className="list-group list-group-flush">
                                             {this.state.randomArr.map(item =>
-                                                item.accepted === false  && item.rejected === true ? <li class="list-group-item">{item.name}</li> : <div></div>
+                                                item.accepted === false  && item.rejected === true ? <li className="list-group-item">{item.name}</li> : <div></div>
                                             )}
                                         </ul>
                                     </div>
