@@ -18,7 +18,7 @@ Poverty and Waste. Two problems can be solved at once. Donate to charity. Sounds
 - Christine Aqui
 - Denisa Bani
 - Martin Jarrin
-- Parham Telebi Taher
+- Parham Talebi Taher
 
 ### Tech Stack
 
